@@ -1,0 +1,13 @@
+@import '../../../assets/scss/variables';
+
+.default-sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: $sidebar-bg-color;
+  padding: 20px 30px;
+  .side-menus {
+    display: flex;
+    flex-direction: column;
+  }
+}
