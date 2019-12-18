@@ -10,6 +10,7 @@ const DefaultMain = (props) => {
         <DefaultMainSidebar />
       </div>
       <div className="main-content column is-9">
+        <h1>Title Of the Page</h1>
         <DefaultMainContent>
           {props.children}
         </DefaultMainContent>

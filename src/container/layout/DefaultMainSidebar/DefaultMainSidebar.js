@@ -16,8 +16,8 @@ const DefaultMainSidebar = (props) => {
       <div className="options">
         <div className="option-item">
           <Link to="/singout">
-            <span class="icon">
-              <i class="fas fa-sign-out-alt"></i>
+            <span className="icon">
+              <i className="fas fa-sign-out-alt"></i>
             </span>
             Sign Out
           </Link>

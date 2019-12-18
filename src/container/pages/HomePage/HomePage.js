@@ -9,7 +9,7 @@ const HomePage = (props) => {
   return(
     <div className="page__home">
       <DefaultLayout>
-        <Route path={`${props.match.path}/dashboard`} exact component={DashboardPage} />
+        <Route path={`${props.match.path}dashboard`} exact component={DashboardPage} />
       </DefaultLayout>
     </div>
   )
