@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import './DefaultMainSidebar.scss';
 
 const DefaultMainSidebar = (props) => {
-  return(
+  return (
     <div className="default-sidebar columns">
       <div className="side-menus">
-        <Link to="/dashboard" className="side-menus__item">
+        <Link to="/account/dashboard" className="side-menus__item">
           Dashboard
         </Link>
-        <Link to="/plans" className="side-menus__item">
+        <Link to="/account" className="side-menus__item">
           Plans
         </Link>
       </div>
