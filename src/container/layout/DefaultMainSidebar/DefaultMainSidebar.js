@@ -4,27 +4,23 @@ import './DefaultMainSidebar.scss';
 
 const DefaultMainSidebar = (props) => {
   return (
-    <div className="default-sidebar columns">
-      <div className="side-menus">
-        <Link to="/account/dashboard" className="side-menus__item">
-          Dashboard
+    <React.Fragment>
+      <li className="nav-item active">
+        <Link to="/account/dashboard" className="nav-link" >
+          <i className="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span>
         </Link>
-        <Link to="/account" className="side-menus__item">
-          Plans
+      </li>
+      <li className="nav-item">
+        <Link to="/account" className="nav-link">
+          <i className="fas fa-fw fa-chart-area"></i>
+          <span>Plans</span>
         </Link>
-      </div>
-      <div className="options">
-        <div className="option-item">
-          <Link to="/singout">
-            <span className="icon">
-              <i className="fas fa-sign-out-alt"></i>
-            </span>
-            Sign Out
-          </Link>
-        </div>
-      </div>
-    </div>
+      </li>
+    </React.Fragment>
+
   )
 }
 
 export default DefaultMainSidebar;
+

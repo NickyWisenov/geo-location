@@ -2,6 +2,10 @@
 
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+@import './assets/scss/style-template';
+@import './assets/scss/bootstrap4';
+@import './assets/scss/sb-admin';
+@import './assets/scss/variables';
 
 // Set your brand colors
 $purple: #8a4d76;
@@ -26,7 +30,7 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
-@import './assets/scss/variables';
+
 
 * {
   box-sizing: border-box;

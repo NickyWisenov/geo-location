@@ -6,14 +6,11 @@ import DefaultMainContent from '../DefaultMainContent/DefaultMainContent';
 const DefaultMain = (props) => {
   return (
     <React.Fragment>
-      <nav>
-      </nav>
-      <div className="default-main columns">
-        <div className="side-bar column is-3">
+      <div id="wrapper">
+        <div className="sidebar navbar-nav">
           <DefaultMainSidebar />
         </div>
-        <div className="main-content column is-9">
-          <h1>Title Of the Page</h1>
+        <div className="content-wrapper">
           <DefaultMainContent>
             {props.children}
           </DefaultMainContent>

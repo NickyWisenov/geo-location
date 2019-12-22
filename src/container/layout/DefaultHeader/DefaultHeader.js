@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './DefaultHeader.scss';
-import logo from '../../../assets/imgs/logo.svg';
+
 
 const DefaultHeader = () => {
   const logo = '/logo192.png'
   return (
-    <div className="navbar navbar-expand navbar-dark bg-dark static-top d-flex justify-content-between">
+    <nav className="d-flex justify-content-between navbar navbar-expand navbar-dark bg-dark static-top ">
       <div>
         <button className="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
           <i className="fas fa-bars"></i>
@@ -16,12 +16,12 @@ const DefaultHeader = () => {
         </div>
       </div>
       <div>
-        <Link to="/logout" className="form-inline my-2 my-lg-0 float-right" style={{ color: 'white', 'font-weight': '500' }}>
+        <Link to="/logout" className="form-inline my-2 my-lg-0 float-right" style={{ color: 'white', fontWeight: '500' }}>
           Logout
         </Link>
       </div>
 
-    </div >
+    </nav >
   )
 }
 

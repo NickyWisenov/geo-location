@@ -41,7 +41,7 @@ const LoginPage = () => {
                 <span className="input-group-text"><i className="fas fa-user"></i></span>
               </div>
               <input
-                className="input"
+                className="form-control"
                 type="email"
                 placeholder="Email"
                 value={email}
@@ -54,7 +54,7 @@ const LoginPage = () => {
                 <span className="input-group-text"><i className="fas fa-key"></i></span>
               </div>
               <input
-                className="input"
+                className="form-control"
                 type="password"
                 placeholder="Password"
                 value={password}
