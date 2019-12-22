@@ -29,54 +29,54 @@ const LoginPage = () => {
     )
   }
   return (
-    <div className="page__login">
-      <div className="box">
-        <div className="field">
-          <p className="control has-icons-left has-icons-right">
-            <input
-              className="input"
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-envelope"></i>
-            </span>
-            <span className="icon is-small is-right">
-              <i className="fas fa-check"></i>
-            </span>
-          </p>
-        </div>
-        <div className="field">
-          <p className="control has-icons-left">
-            <input
-              className="input"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-            />
-            <span className="icon is-small is-left">
-              <i className="fas fa-lock"></i>
-            </span>
-          </p>
-        </div>
-        <div className="field">
-          <p className="control">
-            <button className="button is-success" onClick={handleSubmit}>
-              Login
+    <div className="page__login container">
+      <div className="d-flex justify-content-center h-100 ">
+        <div className="card">
+          <div className="card-header">
+            <h4>Sign In</h4>
+          </div>
+          <div className="card-body pt-4 pb-0">
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text"><i className="fas fa-user"></i></span>
+              </div>
+              <input
+                className="input"
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+
+            </div>
+            <div className="input-group form-group">
+              <div className="input-group-prepend">
+                <span className="input-group-text"><i className="fas fa-key"></i></span>
+              </div>
+              <input
+                className="input"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+              />
+
+            </div>
+            <div className="form-group text-center">
+              <button className="btn btn-success btn-sm px-5 " onClick={handleSubmit}>
+                Login
             </button>
-          </p>
-        </div>
-        <div className="field">
-          <p className="control">
-            Don't you have an account yet?
-            <a href="/signup">Sign Up</a>
-          </p>
+            </div>
+            <div className="input-group form-group">
+              <p className="pr-2">
+                Don't you have an account yet?
+              </p>
+              <a href="/signup">Sign Up</a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
