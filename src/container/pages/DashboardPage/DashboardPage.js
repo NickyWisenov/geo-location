@@ -92,6 +92,32 @@ class DashboardPage extends React.Component {
     console.log(selects);
   }
 
+  handleEditClick = () => {
+    if (this.selects.filter((it) => it).length !== 1) { return; }
+    alert('ok');
+  }
+
+  handleEnableClick = () => {
+    const { targets } = this.state;
+    this.selects.forEach((item, idx) => {
+      if (!item || targets[idx].status === 'on') return;
+      alert('ok');
+    })
+  }
+  handleDisableClick = () => {
+    const { targets } = this.state;
+    this.selects.forEach((item, idx) => {
+      if (!item || targets[idx].status !== 'on') return;
+      alert('ok');
+    })
+  }
+  handleTrashClick = () => {
+    this.selects.forEach((item) => {
+      if (!item) return;
+      alert('ok');
+    })
+  }
+
   render() {
     const { targets, showNew, edit, name, comment, status } = this.state;
     return (
@@ -101,16 +127,16 @@ class DashboardPage extends React.Component {
             <button type="button" className="btn btn-success btn-sm px-3" onClick={this.handleNew}>
               <i className="fas fa-plus-circle pr-1"></i>
               New</button>
-            <button type="button" className="btn btn-outline-dark btn-sm px-3">
+            <button type="button" className="btn btn-outline-dark btn-sm px-3" onClick={this.handleEditClick}>
               <i className="fas fa-edit pr-1"></i>
               Edit</button>
-            <button type="button" className="btn btn-outline-primary btn-sm px-3">
+            <button type="button" className="btn btn-outline-primary btn-sm px-3" onClick={this.handleEnableClick}>
               <i className="fas fa-check-circle pr-1"></i>
               Enable</button>
-            <button type="button" className="btn btn-outline-danger btn-sm px-3">
+            <button type="button" className="btn btn-outline-danger btn-sm px-3" onClick={this.handleDisableClick}>
               <i className="fas fa-times-circle pr-1"></i>
               Disable</button>
-            <button type="button" className="btn btn-outline-warning btn-sm px-3">
+            <button type="button" className="btn btn-outline-warning btn-sm px-3" onClick={this.handleTrashClick}>
               <i className="fas fa-trash pr-1"></i>
               Trash</button>
           </div>
