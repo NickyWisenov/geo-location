@@ -94,32 +94,48 @@ class DashboardPage extends React.Component {
 
   handleEditClick = () => {
     if (this.selects.filter((it) => it).length !== 1) { return; }
-    alert('ok');
+
+  }
+
+  handelGeneralHandle = callback => {
+    const { targets } = this.state;
+    Promise.all(targets.map(async (item, idx) => {
+      if (!this.selects[idx]) return false;
+      return callback(item);
+    })).then((res) => {
+      console.log(res);
+    });
   }
 
   handleEnableClick = () => {
-    const { targets } = this.state;
-    this.selects.forEach((item, idx) => {
-      if (!item || targets[idx].status === 'on') return;
-      alert('ok');
+    this.handelGeneralHandle(async (item) => {
+      if (item.status === 'on') return false;
+      return await DashboardService.updateTarget(this.token, item._id, {
+        ...item,
+        status: 'on'
+      });
     })
   }
+
   handleDisableClick = () => {
-    const { targets } = this.state;
-    this.selects.forEach((item, idx) => {
-      if (!item || targets[idx].status !== 'on') return;
-      alert('ok');
-    })
+    this.handelGeneralHandle(async (item) => {
+      if (item.status !== 'on') return false;
+      return await DashboardService.updateTarget(this.token, item._id, {
+        ...item,
+        status: 'off'
+      });
+    });
   }
-  handleTrashClick = () => {
-    this.selects.forEach((item) => {
-      if (!item) return;
-      alert('ok');
+
+  handleTrashClick = async () => {
+    this.handelGeneralHandle(async (item) => {
+      return await DashboardService.deleteTarget(this.token, item._id);
     })
   }
 
   render() {
     const { targets, showNew, edit, name, comment, status } = this.state;
+    console.log(process.env.SERVICE_URL);
     return (
       <div className="page__dashboard mt-5 pt-2">
         <div className="btn-toolbar pb-2" role="toolbar" aria-label="Toolbar with button groups">
