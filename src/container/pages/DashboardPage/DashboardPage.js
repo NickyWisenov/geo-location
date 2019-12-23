@@ -22,6 +22,7 @@ class DashboardPage extends React.Component {
       file: undefined
     }
 
+    this.selects = [];
     this.token = localStorage.getItem('geo-token');
     this.dlgStyles = {
       content: {
@@ -86,6 +87,11 @@ class DashboardPage extends React.Component {
     this.setState({ status: e.target.checked });
   }
 
+  updateSelects = selects => {
+    this.selects = selects;
+    console.log(selects);
+  }
+
   render() {
     const { targets, showNew, edit, name, comment, status } = this.state;
     return (
@@ -110,8 +116,8 @@ class DashboardPage extends React.Component {
           </div>
         </div>
         {targets.length > 0 && (
-          <div className='target-list'>
-            <TargetList targets={targets} />
+          <div className='target-list pr-4'>
+            <TargetList targets={targets} updateSelects={this.updateSelects} />
           </div>
         )}
 

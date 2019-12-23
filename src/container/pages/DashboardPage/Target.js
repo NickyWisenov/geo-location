@@ -1,15 +1,16 @@
 import React from 'react';
-import disableIcon from '../../../assets/imgs/remove.svg';
-import activeIcon from '../../../assets/imgs/correct-symbol.svg';
 
 const Target = props => {
-  const { data } = props;
+  const { data, setSelect, selected } = props;
+  const activeIcon = "fas fa-check-circle pr-1 text-success";
+  const disableIcon = "fas fa-times-circle pr-1 text-danger";
+
   return (
     <tr>
-      <td><span><input type='checkbox' /></span></td>
+      <td><span><input type='checkbox' checked={selected} onChange={e => setSelect(e.target.checked)} /></span></td>
       <td className="status-cell">
         <div className="status">
-          <img src={data.status === 'active' ? activeIcon : disableIcon} alt="icon"/>
+          <i className={data.status === 'on' ? activeIcon : disableIcon}></i>
         </div>
       </td>
       <td>{data.name}</td>
