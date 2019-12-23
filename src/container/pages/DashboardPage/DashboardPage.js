@@ -89,24 +89,17 @@ class DashboardPage extends React.Component {
   render() {
     const { targets, showNew, edit, name, comment, status } = this.state;
     return (
-      <div className="page__dashboard">
-        <div className="header">
-          <button className="button is-small is-success new" onClick={this.handleNew}>
-            <i className="fas fa-plus-circle"></i>
-            New
-            </button>
-          <button className="button is-small edit">
-            Edit
-            </button>
-          <button className="button is-small enable">
-            Enable
-            </button>
-          <button className="button is-small disable">
-            Disable
-            </button>
-          <button className="button is-small trash">
-            Trash
-            </button>
+      <div className="page__dashboard mt-5 pt-2">
+        <div className="btn-toolbar pb-2" role="toolbar" aria-label="Toolbar with button groups">
+          <div className="mr-2" role="group" aria-label="First group">
+            <button type="button" className="btn btn-success btn-sm" onClick={this.handleNew}>
+              <i className="fas fa-plus-circle pr-1"></i>
+              New</button>
+            <button type="button" className="btn btn-outline-dark btn-sm">Edit</button>
+            <button type="button" className="btn btn-outline-dark btn-sm">Enable</button>
+            <button type="button" className="btn btn-outline-dark btn-sm">Disable</button>
+            <button type="button" className="btn btn-outline-dark btn-sm">Trash</button>
+          </div>
         </div>
         {targets.length > 0 && (
           <div className='target-list'>
