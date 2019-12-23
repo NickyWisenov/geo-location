@@ -92,13 +92,21 @@ class DashboardPage extends React.Component {
       <div className="page__dashboard mt-5 pt-2">
         <div className="btn-toolbar pb-2" role="toolbar" aria-label="Toolbar with button groups">
           <div className="mr-2" role="group" aria-label="First group">
-            <button type="button" className="btn btn-success btn-sm" onClick={this.handleNew}>
+            <button type="button" className="btn btn-success btn-sm px-3" onClick={this.handleNew}>
               <i className="fas fa-plus-circle pr-1"></i>
               New</button>
-            <button type="button" className="btn btn-outline-dark btn-sm">Edit</button>
-            <button type="button" className="btn btn-outline-dark btn-sm">Enable</button>
-            <button type="button" className="btn btn-outline-dark btn-sm">Disable</button>
-            <button type="button" className="btn btn-outline-dark btn-sm">Trash</button>
+            <button type="button" className="btn btn-outline-dark btn-sm px-3">
+              <i className="fas fa-edit pr-1"></i>
+              Edit</button>
+            <button type="button" className="btn btn-outline-primary btn-sm px-3">
+              <i className="fas fa-check-circle pr-1"></i>
+              Enable</button>
+            <button type="button" className="btn btn-outline-danger btn-sm px-3">
+              <i className="fas fa-times-circle pr-1"></i>
+              Disable</button>
+            <button type="button" className="btn btn-outline-warning btn-sm px-3">
+              <i className="fas fa-trash pr-1"></i>
+              Trash</button>
           </div>
         </div>
         {targets.length > 0 && (
@@ -150,14 +158,6 @@ class DashboardPage extends React.Component {
                   <input type='text' value={comment} onChange={this.changeComment} />
                 </div>
               </div>
-              <div className='field'>
-                <div className="field__left">
-                  <label>File:</label>
-                </div>
-                <div className="field__right">
-                  <a href="javascript:void();">Name from File On Server</a>
-                </div>
-              </div>
               <div className="field">
                 <Dropzone onDrop={this.changeFile}>
                   {({ getRootProps, getInputProps }) => (
@@ -173,8 +173,8 @@ class DashboardPage extends React.Component {
               </div>
             </div>
             <div className="modal__footer">
-              <button className="btn btn-success btn-sm" onClick={this.handleOK}>OK</button>
-              <button className="btn btn-dark btn-sm" onClick={this.handleClose}>Cancel</button>
+              <button className="btn btn-success btn-sm px-4" onClick={this.handleOK}>OK</button>
+              <button className="btn btn-dark btn-sm px-2" onClick={this.handleClose}>Cancel</button>
             </div>
           </Modal>
         )}
