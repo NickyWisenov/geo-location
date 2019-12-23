@@ -14,3 +14,168 @@ th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+tr .status {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.page__dashboard {
+  .btn-toolbar {
+    button {
+      margin: 0 5px;
+    }
+  }
+}
+
+.Modal {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  max-width: 400px;
+  max-height: 600px;
+  border-radius: 4px;
+  position: absolute;
+  .modal__header {
+    background: black;
+    padding: 5px;
+    padding: 5px 10px;
+    h2 {
+      font-size: 14px;
+      color: white;
+      margin: 0;
+    }
+  }
+  .modal__body {
+    padding: 10px;
+
+  }
+  .modal__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      margin: 5px;
+    }
+  }
+
+  .field {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    .field__left {
+      flex: 1;
+      width: 40%;
+      max-width: 40%;
+    }
+    .field__right {
+      flex: 1;
+      width: 60%;
+      max-width: 60%;
+    }
+    input {
+      width: 100%;
+    }
+    section.drop-zone {
+      border: dashed 1px gray;
+      border-radius: 2px;
+      .drop-zone-content {
+        min-height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        button {
+          border: 1px solid green;
+          &:hover {
+            background: green;
+            transition: all 0.3s ease-in-out;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0,.3);
+}
+
+label {
+  margin: 0;
+}
+
+.toggle {
+  position: relative;
+  width: 35px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: #ddd;
+  overflow: hidden;
+  box-shadow: inset 0 0 2px 1px rgba(0,0,0,.05);
+}
+
+.check {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 6;
+  &:checked ~ .track {
+    box-shadow: inset 0 0 0 20px #4bd863;
+  }
+
+  &:checked ~ .switch {
+    right: 2px;
+    left: 15px;
+    transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+    transition-property: left, right;
+    transition-delay: .05s, 0s;
+  }
+}
+
+
+.switch {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 15px;
+  background-color: #fff;
+  border-radius: 36px;
+  z-index: 1;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition-property: left, right;
+  transition-delay: 0s, .05s;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: .35s cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  box-shadow: inset 0 0 0 2px rgba(0,0,0,.05);
+  border-radius: 40px;
+}

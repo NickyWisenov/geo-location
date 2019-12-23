@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 require('dotenv').config()
-const serviceURL = 'http://127.0.0.1:5000';
+const serviceURL = 'http://192.168.1.19:5000';
 // const serviceURL = process.env.SERVICE_URL;
 
 export default {

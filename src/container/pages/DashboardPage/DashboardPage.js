@@ -112,42 +112,69 @@ class DashboardPage extends React.Component {
             isOpen={showNew}
             onAfterOpen={this.afterOpenModal}
             onRequestClose={this.handleClose}
-            style={this.dlgStyles}
+            // style={this.dlgStyles}
             contentLabel="Example Modal"
             ariaHideApp={false}
+            className="Modal"
+            overlayClassName="Overlay"
           >
-
-            <h2 ref={subtitle => this.subtitle = subtitle}>Field Boundaries Kanton Wallis</h2>
-            <div className='field'>
-              <label>Status:
-              <input type='checkbox' checked={status} onChange={this.changeStatus} />
-              </label>
+            <div className="modal__header">
+              <h2 ref={subtitle => this.subtitle = subtitle}>ID 19023123912</h2>
             </div>
-            <div className='field'>
-              <label>Name:
-              <input type='text' value={name} onChange={this.changeName} />
-              </label>
+            <div className="modal__body">
+              <div className='field'>
+                <div className="field__left">
+                  <label>Status:</label>
+                </div>
+                <div className="field__right">
+                  <div className="toggle">
+                    <input type="checkbox" className="check" />
+                    <b className="b switch"></b>
+                    <b className="b track"></b>
+                  </div>
+                </div>
+              </div>
+              <div className='field'>
+                <div className="field__left">
+                  <label>Name:</label>
+                </div>
+                <div className="field__right">
+                  <input type='text' value={name} onChange={this.changeName} />
+                </div>
+              </div>
+              <div className='field'>
+                <div className="field__left">
+                  <label>Comment:</label>
+                </div>
+                <div className="field__right">
+                  <input type='text' value={comment} onChange={this.changeComment} />
+                </div>
+              </div>
+              <div className='field'>
+                <div className="field__left">
+                  <label>File:</label>
+                </div>
+                <div className="field__right">
+                  <a href="javascript:void();">Name from File On Server</a>
+                </div>
+              </div>
+              <div className="field">
+                <Dropzone onDrop={this.changeFile}>
+                  {({ getRootProps, getInputProps }) => (
+                    <section className="drop-zone">
+                      <div className="drop-zone-content" {...getRootProps()}>
+                        <input {...getInputProps()} />
+                        <p>Drag 'n' drop some files here, or click to select files</p>
+                        <button className="btn btn-bordered">Browse File</button>
+                      </div>
+                    </section>
+                  )}
+                </Dropzone>
+              </div>
             </div>
-            <div className='field'>
-              <label>Comment:
-              <input type='text' value={comment} onChange={this.changeComment} />
-              </label>
-            </div>
-            <div className='field'>
-              <Dropzone onDrop={this.changeFile}>
-                {({ getRootProps, getInputProps }) => (
-                  <section>
-                    <div {...getRootProps()}>
-                      <input {...getInputProps()} />
-                      <p>Drag 'n' drop some files here, or click to select files</p>
-                    </div>
-                  </section>
-                )}
-              </Dropzone>
-            </div>
-            <div className='field'>
-              <button onClick={this.handleOK}>OK</button>
-              <button onClick={this.handleClose}>Cancel</button>
+            <div className="modal__footer">
+              <button className="btn btn-success btn-sm" onClick={this.handleOK}>OK</button>
+              <button className="btn btn-dark btn-sm" onClick={this.handleClose}>Cancel</button>
             </div>
           </Modal>
         )}
