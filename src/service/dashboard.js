@@ -29,4 +29,3 @@ export const updateTarget = (token, id, data) => {
 export const deleteTarget = (token, id) => {
   return RestClient.authDelete(`/api/admin/${id}`, token);
 }
-

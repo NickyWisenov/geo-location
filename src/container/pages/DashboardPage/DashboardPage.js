@@ -66,6 +66,22 @@ class DashboardPage extends React.Component {
         console.log(error);
         this.setState({ errMsg: error.toString() });
       }
+    } else {
+      try {
+        this.handelGeneralHandle(async (item) => {
+          return await DashboardService.updateTarget(this.token, item._id, {
+            ...item,
+            status: this.state.status,
+            name: this.state.name,
+            comment: this.state.comment,
+            file: this.state.file
+          });
+        })
+        this.setState({ showNew: false, errMsg: '' });
+      } catch (error) {
+        console.log(error);
+        this.setState({ errMsg: error.toString() });
+      }
     }
   }
 
@@ -95,6 +111,18 @@ class DashboardPage extends React.Component {
   handleEditClick = () => {
     if (this.selects.filter((it) => it).length !== 1) { return; }
 
+    this.setState({
+      showNew: true,
+      edit: true
+    });
+
+    this.handelGeneralHandle(async (item) => {
+      this.setState({
+        name: item.name,
+        status: item.status,
+        comment: item.comment
+      })
+    });
   }
 
   handelGeneralHandle = callback => {
@@ -134,8 +162,8 @@ class DashboardPage extends React.Component {
   }
 
   render() {
-    const { targets, showNew, edit, name, comment, status } = this.state;
-    console.log(process.env.SERVICE_URL);
+    const { targets, showNew, name, comment, status } = this.state;
+
     return (
       <div className="page__dashboard mt-5 pt-2">
         <div className="btn-toolbar pb-2" role="toolbar" aria-label="Toolbar with button groups">
@@ -184,7 +212,7 @@ class DashboardPage extends React.Component {
                 </div>
                 <div className="field__right">
                   <div className="toggle">
-                    <input type="checkbox" className="check" />
+                    <input type="checkbox" className="check" checked={status === 'on' ? true : false} onChange={this.changeStatus}/>
                     <b className="b switch"></b>
                     <b className="b track"></b>
                   </div>
